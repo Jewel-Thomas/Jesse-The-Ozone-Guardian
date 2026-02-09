@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Flow : MonoBehaviour
 {
-    [Range(0,5)] public float scrollspeed;
+    [Range(0,0.1f)] public float scrollspeed; 
     Renderer rend;
     // Start is called before the first frame update
     void Start()
@@ -16,6 +16,6 @@ public class Flow : MonoBehaviour
     void Update()
     {
         float offset = scrollspeed*Time.time;
-        rend.material.mainTextureOffset = new Vector2(offset,offset/2);
+        rend.material.mainTextureOffset = new Vector2(offset,-offset/2);
     }
 }

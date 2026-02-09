@@ -4,9 +4,7 @@ using UnityEngine;
 
 public class CharacterSkinController : MonoBehaviour
 {
-    public ShutDownScript shutDownScript;
     CharacterController cc;
-    public AudioClip stepAudioClip;
     public AudioSource stepSound;
     public bool hasJumped = false;
     public MovementInput movementInput;
@@ -33,6 +31,46 @@ public class CharacterSkinController : MonoBehaviour
 
     // Update is called once per frame
     void Update()
+    {
+        EdgeCases();
+        ChangeAnimationStates();
+    }
+
+    void ChangeAnimationStates()
+    {
+        if (Input.GetKeyDown(KeyCode.Alpha1) && canChange && !ShutDownScript.isShutDown)
+        {
+            //ChangeMaterialSettings(0);
+            ChangeEyeOffset(EyePosition.normal);
+            ChangeAnimatorIdle("normal");
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha2) && canChange && !ShutDownScript.isShutDown)
+        {
+            //ChangeMaterialSettings(1);
+            ChangeEyeOffset(EyePosition.angry);
+            ChangeAnimatorIdle("angry");
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha3) && canChange && !ShutDownScript.isShutDown)
+        {
+            //ChangeMaterialSettings(2);
+            ChangeEyeOffset(EyePosition.happy);
+            ChangeAnimatorIdle("happy");
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha4) && canChange && !ShutDownScript.isShutDown)
+        {
+            //ChangeMaterialSettings(3);
+            ChangeEyeOffset(EyePosition.sad);
+            ChangeAnimatorIdle("sad");
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha5) && canChange && !ShutDownScript.isShutDown)
+        {
+            //ChangeMaterialSettings(3);
+            ChangeEyeOffset(EyePosition.dead);
+            ChangeAnimatorIdle("sad");
+        }
+    }
+
+    void EdgeCases()
     {
         if(ShutDownScript.isShutDown)
         {
@@ -67,36 +105,6 @@ public class CharacterSkinController : MonoBehaviour
             ChangeAnimatorIdle("normal");
             switched = true;
             canChange = true;
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha1) && canChange && !ShutDownScript.isShutDown)
-        {
-            //ChangeMaterialSettings(0);
-            ChangeEyeOffset(EyePosition.normal);
-            ChangeAnimatorIdle("normal");
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha2) && canChange && !ShutDownScript.isShutDown)
-        {
-            //ChangeMaterialSettings(1);
-            ChangeEyeOffset(EyePosition.angry);
-            ChangeAnimatorIdle("angry");
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha3) && canChange && !ShutDownScript.isShutDown)
-        {
-            //ChangeMaterialSettings(2);
-            ChangeEyeOffset(EyePosition.happy);
-            ChangeAnimatorIdle("happy");
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha4) && canChange && !ShutDownScript.isShutDown)
-        {
-            //ChangeMaterialSettings(3);
-            ChangeEyeOffset(EyePosition.sad);
-            ChangeAnimatorIdle("sad");
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha5) && canChange && !ShutDownScript.isShutDown)
-        {
-            //ChangeMaterialSettings(3);
-            ChangeEyeOffset(EyePosition.dead);
-            ChangeAnimatorIdle("sad");
         }
     }
 

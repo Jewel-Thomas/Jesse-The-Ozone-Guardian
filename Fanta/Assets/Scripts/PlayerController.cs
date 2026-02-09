@@ -8,7 +8,7 @@ public class PlayerController : MonoBehaviour
     public bool isChiming = false;
     public GameObject crystalPrefab;
     public Material crystalMaterial;
-    public  bool isGlowing = false;
+    public bool isGlowing = false;
     // Start is called before the first frame update
     void Start()
     {

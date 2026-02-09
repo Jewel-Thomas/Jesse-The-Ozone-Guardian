@@ -39,11 +39,11 @@ public class MovementInput : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		Cursor.visible = false;
-        Cursor.lockState = CursorLockMode.Locked;
 		anim = this.GetComponent<Animator> ();
 		cam = Camera.main;
 		controller = this.GetComponent<CharacterController> ();
+		Cursor.visible = false;
+		Cursor.lockState = CursorLockMode.Locked;
 	}
 	
 	// Update is called once per frame
@@ -53,9 +53,6 @@ public class MovementInput : MonoBehaviour {
 			InputMagnitude();
 		}
 		
-
-
-
         isGrounded = controller.isGrounded;
         if (isGrounded)
         {
